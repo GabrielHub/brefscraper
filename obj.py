@@ -33,6 +33,7 @@ class PlayerStat:
         self.pf = params.get('pf')
         self.pts = params.get('pts')
         
+        
 #Turns scraped json data to python object
 class PlayerPool:
     def __init__(self):
@@ -43,8 +44,8 @@ class PlayerPool:
             data = json.load(rfile)
         #load player data
         self.pool = [PlayerStat(p) for p in data]
-            
-if __name__ == "__main__":
-    players = PlayerPool()
-    
-    print(len(players.pool))
+        
+    def printPts(self):
+        for p in self.pool:
+            print(p.name, p.pts)
+        pass
